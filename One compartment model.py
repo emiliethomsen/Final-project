@@ -70,7 +70,7 @@ hz_time = np.array([hazard(bw, cs, zw, hb) for cs in Cs])
 fig, axs = plt.subplots(3, 1, figsize=(10, 12))
 
 # Concentrations
-axs[0].plot(time, Cs, label='Structural Layer Concentration ($C_s$)')
+axs[0].plot(time, Cs, label='Structural Layer Concentration ($C_i$)')
 axs[0].set_ylabel('Concentration (mmol L$^{-1}$)')
 axs[0].set_xlabel('Time (days)')
 axs[0].legend()
@@ -167,7 +167,7 @@ for i, kws in enumerate(kws_values):
     hz_time = np.array([hazard(bw, cs, zw, hb) for cs in Cs])
 
     label = f"kws = {kws}"
-    axs[0].plot(time, Cs, label=f"$C_s$ ({label})", color=colors[i])
+    axs[0].plot(time, Cs,label=label, color=colors[i])
     axs[1].plot(time, hz_time, label=label, color=colors[i])
     axs[2].plot(time, S, label=label, color=colors[i])
 
@@ -175,8 +175,8 @@ for i, kws in enumerate(kws_values):
 
 for ax, title, ylabel in zip(
     axs,
-    ["Structural Layer Concentration", "Hazard Over Time", "Survival Over Time"],
-    ['Cs (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
+    ["Internal Concentration", "Hazard Rate", "Survival Probability"],
+    ['$C_i$ (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
     ax.set_title(title)
     ax.set_ylabel(ylabel)
     ax.set_xlabel('Time (days)')
@@ -247,7 +247,7 @@ for i, ksw in enumerate(ksw_values):
     hz_time = np.array([hazard(bw, cs, zw, hb) for cs in Cs])
 
     label = f"ksw = {ksw}"
-    axs[0].plot(time, Cs, label=f"$C_s$ ({label})", color=colors[i])
+    axs[0].plot(time, Cs, label=label, color=colors[i])
     axs[1].plot(time, hz_time, label=label, color=colors[i])
     axs[2].plot(time, S, label=label, color=colors[i])
 
@@ -255,8 +255,8 @@ for i, ksw in enumerate(ksw_values):
 
 for ax, title, ylabel in zip(
     axs,
-    ["Structural Layer Concentration", "Hazard Over Time", "Survival Over Time"],
-    ['Cs (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
+    ["Internal Concentration", "Hazard Rate", "Survival Probability"],
+    ['$C_i$ (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
     ax.set_title(title)
     ax.set_ylabel(ylabel)
     ax.set_xlabel('Time (days)')
