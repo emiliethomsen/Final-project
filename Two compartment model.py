@@ -194,8 +194,8 @@ for i, kws in enumerate(kws_values):
     hz_time = np.array([hazard(bw, cs, zw, hb) for cs in Cs])
 
     label = f"kws = {kws}"
-    axs[0].plot(time, Cs, label=f"$C_s$ ({label})", color=colors[i])
-    axs[1].plot(time, Cl, label=f"$C_l$ ({label})", color=colors[i])
+    axs[0].plot(time, Cs, label=label, color=colors[i])
+    axs[1].plot(time, Cl, label=label, color=colors[i])
     axs[2].plot(time, hz_time, label=label, color=colors[i])
     axs[3].plot(time, S, label=label, color=colors[i])
 
@@ -203,8 +203,8 @@ for i, kws in enumerate(kws_values):
 
 for ax, title, ylabel in zip(
     axs,
-    ["Structural Layer Concentration", "Lipid Layer Concentration", "Hazard Over Time", "Survival Over Time"],
-    ['Cs (mmol/L)', 'Cl (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
+    ["Structural Layer Concentration", "Lipid Layer Concentration", "Hazard Rate", "Survival Probability"],
+    ['$C_s$ (mmol/L)', '$C_l$ (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
     ax.set_title(title)
     ax.set_ylabel(ylabel)
     ax.set_xlabel('Time (days)')
@@ -278,8 +278,8 @@ for i, ksw in enumerate(ksw_values):
     hz_time = np.array([hazard(bw, cs, zw, hb) for cs in Cs])
 
     label = f"ksw = {ksw}"
-    axs[0].plot(time, Cs, label=f"$C_s$ ({label})", color=colors[i])
-    axs[1].plot(time, Cl, label=f"$C_l$ ({label})", color=colors[i])
+    axs[0].plot(time, Cs, label=label, color=colors[i])
+    axs[1].plot(time, Cl, label=label, color=colors[i])
     axs[2].plot(time, hz_time, label=label, color=colors[i])
     axs[3].plot(time, S, label=label, color=colors[i])
 
@@ -287,8 +287,8 @@ for i, ksw in enumerate(ksw_values):
 
 for ax, title, ylabel in zip(
     axs,
-    ["Structural Layer Concentration", "Lipid Layer Concentration", "Hazard Over Time", "Survival Over Time"],
-    ['Cs (mmol/L)', 'Cl (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
+    ["Structural Layer Concentration", "Lipid Layer Concentration", "Hazard Rate", "Survival Probability"],
+    ['$C_s$ (mmol/L)', '$C_l$ (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
     ax.set_title(title)
     ax.set_ylabel(ylabel)
     ax.set_xlabel('Time (days)')
@@ -361,8 +361,8 @@ for i, ksl in enumerate(ksl_values):
     hz_time = np.array([hazard(bw, cs, zw, hb) for cs in Cs])
 
     label = f"ksl = {ksl}"
-    axs[0].plot(time, Cs, label=f"$C_s$ ({label})", color=colors[i])
-    axs[1].plot(time, Cl, label=f"$C_l$ ({label})", color=colors[i])
+    axs[0].plot(time, Cs, label=label, color=colors[i])
+    axs[1].plot(time, Cl, label=label, color=colors[i])
     axs[2].plot(time, hz_time, label=label, color=colors[i])
     axs[3].plot(time, S, label=label, color=colors[i])
 
@@ -370,8 +370,8 @@ for i, ksl in enumerate(ksl_values):
 
 for ax, title, ylabel in zip(
     axs,
-    ["Structural Layer Concentration", "Lipid Layer Concentration", "Hazard Over Time", "Survival Over Time"],
-    ['Cs (mmol/L)', 'Cl (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
+    ["Structural Layer Concentration", "Lipid Layer Concentration", "Hazard Rate", "Survival Probability"],
+    ['$C_s$ (mmol/L)', '$C_l$ (mmol/L)', 'Hazard Rate (d$^{-1}$)', 'Survival Probability']):
     ax.set_title(title)
     ax.set_ylabel(ylabel)
     ax.set_xlabel('Time (days)')
