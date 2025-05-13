@@ -190,7 +190,7 @@ plt.show()
 #                       ESTIMATE KWS
 # ==========================================================================
 
-def solve_odes(timepoints, kws, ksw, bw, hb, zw, Cw):
+def solve_kws(timepoints, kws, ksw, bw, hb, zw, Cw):
     y0 = [Cs0, S0]
     sol = odeint(model, y0, timepoints, args=(kws, ksw, bw, hb, zw, Cw))
     return sol[:, 1]
@@ -202,7 +202,7 @@ cov_matrices = []
 
 for kws_true, observed_data in zip(true_kws_values, observed_survival_data):
     popt, pcov = curve_fit(
-        lambda tt, kws: solve_odes(tt, kws, ksw, bw, hb, zw, Cw),
+        lambda tt, kws: solve_kws(tt, kws, ksw, bw, hb, zw, Cw),
         timepoints_days, observed_data, p0=[kws_true], bounds=(0, np.inf)
     )
     estimated_kws_values.append(popt[0])
@@ -270,7 +270,7 @@ plt.show()
 #                       ESTIMATE KSW
 # ==========================================================================
 
-def solve_odes(timepoints, kws, ksw, bw, hb, zw, Cw):
+def solve_ksw(timepoints, kws, ksw, bw, hb, zw, Cw):
     y0 = [Cs0, S0]
     sol = odeint(model, y0, timepoints, args=(kws, ksw, bw, hb, zw, Cw))
     return sol[:, 1]
@@ -282,7 +282,7 @@ cov_matrices = []
 
 for ksw_true, observed_data in zip(true_ksw_values, observed_survival_data):
     popt, pcov = curve_fit(
-        lambda tt, ksw: solve_odes(tt, kws, ksw, bw, hb, zw, Cw),
+        lambda tt, ksw: solve_ksw(tt, kws, ksw, bw, hb, zw, Cw),
         timepoints_days, observed_data, p0=[ksw_true], bounds=(0, np.inf)
     )
     estimated_ksw_values.append(popt[0])
